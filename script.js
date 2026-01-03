@@ -3,14 +3,14 @@ const refreshBtn = document.createElement("button");
 refreshBtn.className = "refreshBtn";
 mainContainer.className = "mainContainer";
 let numberOfPixels;
-function addDivs(numberOfDivs)
-{
+function addDivs(numberOfDivs) {
     const totalDivs = numberOfDivs * numberOfDivs;
-    const containerWidth = mainContainer.clientWidth;
-    const containerHeight = mainContainer.clientHeight;
 
-    for(let i = 0; i < totalDivs; i++)
-    {
+    // Make sure the container is in DOM first
+    const containerWidth = mainContainer.offsetWidth;
+    const containerHeight = mainContainer.offsetHeight;
+
+    for (let i = 0; i < totalDivs; i++) {
         let newDiv = document.createElement("div");
         newDiv.className = "childDiv";
 
@@ -18,14 +18,20 @@ function addDivs(numberOfDivs)
         newDiv.style.width = `${containerWidth / numberOfDivs}px`;
         newDiv.style.height = `${containerHeight / numberOfDivs}px`;
 
-        newDiv.addEventListener("mouseover", () => 
-            {
-                newDiv.style.backgroundColor = "white";
-            })
+        newDiv.addEventListener("mouseover", () => {
+            const r = Math.floor(256 * Math.random());
+            const g = Math.floor(256 * Math.random());
+            const b = Math.floor(256 * Math.random());
+            newDiv.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+        });
 
         mainContainer.appendChild(newDiv);
     }
 }
+
+
+
+       
 refreshBtn.textContent = `Resize Grid`;
 
 refreshBtn.addEventListener("click", () => {
