@@ -9,4 +9,13 @@
 
 .childDiv{
     background-color: red;
+    border: 2px solid black;
+    box-sizing: border-box;
+}
+
+.refreshBtn{
+    padding: 8px;
+    background-color: rgb(90, 183, 254); 
+    border-radius: 8px;
+    
 }

@@ -1,5 +1,8 @@
 const mainContainer = document.createElement("div");
+const refreshBtn = document.createElement("button");
+refreshBtn.className = "refreshBtn";
 mainContainer.className = "mainContainer";
+let numberOfPixels;
 function addDivs(numberOfDivs)
 {
     const totalDivs = numberOfDivs * numberOfDivs;
@@ -23,9 +26,24 @@ function addDivs(numberOfDivs)
         mainContainer.appendChild(newDiv);
     }
 }
+refreshBtn.textContent = `Resize Grid`;
 
-
+refreshBtn.addEventListener("click", () => {
+    numberOfPixels = prompt(`Enter The Number of Pixels (eg 16 for 16x16)`)
+    if(numberOfPixels > 100)
+    {
+        alert(`Please enter a number no greater than 100 eg (16 for 16x16)`);
+        return;
+    }
+    mainContainer.innerHTML = "";
+    addDivs(numberOfPixels);
+    
+} )
+document.body.appendChild(refreshBtn);
 
 document.body.appendChild(mainContainer);
-let numberOfPixels = prompt(`Enter The Number of Pixels`)
+numberOfPixels = prompt(`Enter The Number of Pixels (eg 16 for 16x16)`)
+if(numberOfPixels > 100){
+    prompt(`Please enter a number no greater than (100 eg 16 for 16x16)`)
+}
 addDivs(numberOfPixels);
