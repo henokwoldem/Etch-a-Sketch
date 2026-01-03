@@ -1,0 +1,12 @@
+.mainContainer{
+    display: flex;
+    background-color: blue;
+    flex-wrap: wrap;
+    width: 800px;
+    height: 800px;
+    
+}
+
+.childDiv{
+    background-color: red;
+}
